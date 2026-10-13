@@ -236,7 +236,6 @@ jobs:
     name: Deploy — DEV
     needs: docker-build-push
     runs-on: ubuntu-latest
-    environment: dev
     steps:
       - uses: actions/checkout@v5
 
