@@ -185,6 +185,15 @@ jobs:
         id: tag
         run: echo "image_tag=sha-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
 
+      - name: Debug - Print GitHub context
+        run: |
+          echo "GitHub Repository: ${{ github.repository }}"
+          echo "GitHub Ref: ${{ github.ref }}"
+          echo "GitHub Event Name: ${{ github.event_name }}"
+          echo "GitHub Actor: ${{ github.actor }}"
+          echo "AWS Account ID: ${{ secrets.AWS_ACCOUNT_ID }}"
+          echo "AWS Region: ${{ env.AWS_REGION }}"
+
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v5
         with:
