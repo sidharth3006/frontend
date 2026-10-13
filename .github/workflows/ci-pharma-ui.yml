@@ -235,6 +235,7 @@ jobs:
   deploy-dev:
     name: Deploy — DEV
     needs: docker-build-push
+    if: always() && needs.docker-build-push.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
